@@ -54,10 +54,12 @@ module GiteaAPI
 		end 
 
 		def to_s
-			description = "GiteaAPI::PullRequestReview {\n"
-			description.concat("\tstate: #{@state}\n") 
-			description.concat("\tuser: #{@user}\n")
-			description.concat("\tbody: #{@body}\n")
+			description = "#{self.class.name} {\n"
+			instance_variables.each do |ivar|
+				variableName = ivar.to_s.gsub("@", "")
+				description.concat("\t#{variableName}: #{instance_variable_get(ivar)}\n")
+			end
+
 			description.concat("}\n")
 
     		return description

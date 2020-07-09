@@ -56,7 +56,7 @@ module GiteaAPI
 
 			@title = prHash["title"]
 			@description = prHash["body"]
-			@author = GiteaAPI::User.new(prHash["user"].to_json)  ## Downconvert back ot a json string and pass on to User initializtion
+			@author = GiteaAPI::User.new(prHash["user"].to_json)  ## Down convert back ot a json string and pass on to User initialization
 			@state = prHash["state"]
 		end 
 

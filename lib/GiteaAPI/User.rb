@@ -59,5 +59,23 @@ module GiteaAPI
 
     		return descriptionComponents.join("")
   		end
+
+  		## Equality
+  		def ==(other)
+  			if other.is_a?(self.class) == false
+  				return false
+  			end
+
+  			instance_variables.each do |ivar|
+				mine = self.instance_variable_get(ivar)
+				theirs = other.instance_variable_get(ivar)
+
+				if mine != theirs
+					return false
+				end
+			end
+
+			return true
+  		end
 	end
 end
